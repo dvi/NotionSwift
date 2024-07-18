@@ -73,6 +73,7 @@ extension DatabasePropertyFilter {
         case doesNotContain(T)
         case isEmpty
         case isNotEmpty
+        case equals(T)
     }
 }
 

@@ -224,6 +224,7 @@ extension DatabasePropertyFilter.SimpleGenericCondition: Encodable {
         case doesNotContain = "does_not_contain"
         case isEmpty = "is_empty"
         case isNotEmpty = "is_not_empty"
+        case equals
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -237,6 +238,8 @@ extension DatabasePropertyFilter.SimpleGenericCondition: Encodable {
             try container.encode(true, forKey: .isEmpty)
         case .isNotEmpty:
             try container.encode(true, forKey: .isNotEmpty)
+        case .equals(let value):
+            try container.encode(value, forKey: .equals)
         }
     }
 }
